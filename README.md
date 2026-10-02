@@ -137,10 +137,10 @@ the paper's results.
 
 ## Citation
 
-If you use this code, please cite the [arXiv paper](https://arxiv.org/abs/2606.01382):
+If you use this code, please cite the [paper](https://arxiv.org/abs/2606.01382):
 
 ```bibtex
-@misc{nan2026efficientexplorationiterativenash,
+@misc{nan2026efficient,
   title         = {Efficient Exploration for Iterative Nash Preference Optimization},
   author        = {Tianlong Nan and Xiaopeng Li and Christian Kroer and Tianyi Lin},
   year          = {2026},
