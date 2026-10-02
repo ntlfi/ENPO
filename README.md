@@ -134,3 +134,19 @@ attention before paper-reproduction claims: the XPO worker minimizes a term
 No project license has been selected. Model and dataset licenses remain
 separate. CPU checks do not establish successful GPU training or reproduce
 the paper's results.
+
+## Citation
+
+If you use this code, please cite the [arXiv paper](https://arxiv.org/abs/2606.01382):
+
+```bibtex
+@misc{nan2026efficientexplorationiterativenash,
+  title         = {Efficient Exploration for Iterative Nash Preference Optimization},
+  author        = {Tianlong Nan and Xiaopeng Li and Christian Kroer and Tianyi Lin},
+  year          = {2026},
+  eprint        = {2606.01382},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2606.01382}
+}
+```
