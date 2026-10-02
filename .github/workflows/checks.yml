@@ -1,0 +1,34 @@
+name: Source checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  cpu-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check Python syntax
+        run: python -m compileall -q src workers runners
+      - name: Test runtime configuration
+        run: python -m unittest discover -s tests -v
+      - name: Check shell launchers
+        run: |
+          for script in scripts/*.sh; do bash -n "$script"; done
+          bash scripts/run.sh --help
+          for recipe in enpo inpo xpo; do
+            bash "scripts/run_${recipe}.sh" --help
+            DRY_RUN=1 bash "scripts/run_${recipe}.sh" --output_dir outputs/check
+          done
+          for runner in dpo enpo_single_pair cumulative_inpo iterative_dpo; do
+            if DRY_RUN=1 bash scripts/run.sh "$runner" --output_dir outputs/check; then
+              exit 1
+            fi
+          done
